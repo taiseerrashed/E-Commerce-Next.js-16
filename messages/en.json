@@ -1,0 +1,60 @@
+{
+  "common": {
+    "Home": "Home",
+    "Products": "Products",
+    "Contact": "Contact",
+    "ShopMart": "ShopMart"
+  },
+  "HomePage": {
+    "title": "LUXURY NOIR IDENTITY",
+    "slides": {
+      "0": {
+        "title": "Elevate Your Style With Premium Collections",
+        "subtitle": "Curated fashion and tech picks designed for a modern lifestyle."
+      },
+      "1": {
+        "title": "Luxury Tech Essentials That Perform Beautifully",
+        "subtitle": "Shop high-end products with clean design and trusted quality."
+      },
+      "2": {
+        "title": "From Trend To Timeless, Built For Your Lifestyle",
+        "subtitle": "Discover statement products crafted for confidence and comfort."
+      }
+    },
+    "ShopNow": "Shop Now",
+    "FEATURED": "FEATURED",
+    "OFF": "OFF",
+    "featuredTitle": "Featured Products",
+    "featuredSubtitle": "Drag to explore our hand-picked collection.",
+    "View All": "View All",
+    "newArrivalsTitle": "New Arrivals",
+    "newArrivalsSubtitle": "Discover the latest additions to our collection.",
+    "categoryTitle": "Shop By Category",
+    "categorySubtitle": "Curated categories for a premium browsing experience.",
+    "featuredCategory": "Featured Category"
+  },
+  "ProductsPage": {
+    "title": "Products",
+    "subtitle": "Discover our latest products",
+    "Brand": "Brand",
+    "Category": "Category",
+    "In Stock": "In Stock",
+    "Quick Add To Cart": "Quick Add To Cart",
+    "Add to Cart": "Add to Cart"
+  },
+  "CartPage": {
+    "title": "Shopping Cart",
+    "emptyTitle": "Your Cart is Empty",
+    "emptydesc": "Looks like you haven't added anything yet.",
+    "Remove": "Remove",
+    "Clear Cart": "Clear Cart",
+    "Total": "Total"
+  },
+  "FavoritesPage": {
+    "title": "My Favorites",
+    "emptyTitle": "Your Favorites List is Empty",
+    "emptyDescription": "Save products you love to view them later.",
+    "addToCart": "Add to Cart",
+    "clear": "Clear Favorites"
+  }
+}
