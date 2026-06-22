@@ -50,15 +50,15 @@ const Favorites = () => {
           <Card className="p-6 shadow-xl rounded-3xl space-y-6">
             {favorites.map((item) => (
               <div
-                key={item.id}
+                key={item._id}
                 className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 border-b pb-6 last:border-none"
               >
                 {/* Product Info */}
                 <div className="flex items-center gap-4">
-                  <Link href={`/products/${item.id}`}>
+                  <Link href={`/products/${item._id}`}>
                     <div className="relative w-24 h-24 border rounded-2xl overflow-hidden bg-background shadow-lg">
                       <Image
-                        src={item.thumbnail}
+                        src={item.imageCover}
                         alt={item.title}
                         fill
                         className="object-contain p-2"
@@ -76,7 +76,7 @@ const Favorites = () => {
                     </p>
 
                     <p className="text-sm text-muted-foreground">
-                      {item.category}
+                      {item.category.name}
                     </p>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ const Favorites = () => {
                   <Button
                     variant="destructive"
                     size="icon"
-                    onClick={() => removeFromFavorites(item.id)}
+                    onClick={() => removeFromFavorites(item._id)}
                   >
                     <FiTrash2 />
                   </Button>
