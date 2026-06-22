@@ -34,11 +34,18 @@ const ToggleMenu = () => {
             {t("Products")}
           </Link>
           <Link
-            href="/contact"
+            href="/categories"
             onClick={() => setIsOpen(false)}
-            className={`${pathname.endsWith("/contact") ? "text-main-color" : "text-secondary-foreground"} hover:text-main-color transition-colors`}
+            className={`${pathname.endsWith("/categories") ? "text-main-color" : "text-secondary-foreground"} hover:text-main-color transition-colors`}
           >
-            {t("Contact")}
+            {t("Categories")}
+          </Link>
+          <Link
+            href="/brands"
+            onClick={() => setIsOpen(false)}
+            className={`${pathname.endsWith("/brands") ? "text-main-color" : "text-secondary-foreground"} hover:text-main-color transition-colors`}
+          >
+            {t("Brands")}
           </Link>
         </div>
       )}

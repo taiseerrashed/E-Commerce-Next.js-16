@@ -8,13 +8,17 @@ import CartItem from "./CartItem";
 import CartSkeleton from "./CartSkeleton";
 import { useTranslations } from "next-intl";
 import useHydration from "@/store/client/useHydration";
+import { Link } from "@/i18n/navigation";
 
 const CartActions = () => {
   const { cart, clearCart } = useCartStore();
   const t = useTranslations("CartPage");
   const hydrated = useHydration();
 
-  const totalPrice = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalPrice = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0,
+  );
 
   if (!hydrated) {
     return <CartSkeleton />;
@@ -43,7 +47,6 @@ const CartActions = () => {
         ))}
       </Card>
 
-      {/* Footer */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         <Button
           variant="outline"
@@ -60,6 +63,22 @@ const CartActions = () => {
             ${totalPrice.toFixed(2)}
           </span>
         </div>
+      </div>
+
+      <div className="mt-4 flex items-center justify-center gap-4">
+        <Link
+          href="/checkout"
+          className="rounded-full px-6 py-3 text-sm font-semibold bg-btn-color text-background hover:bg-btn-color/80 transition"
+        >
+          {t("Checkout")}
+        </Link>
+
+        <Link
+          href="/products"
+          className="rounded-full px-6 py-3 text-sm font-semibold bg-secondary hover:bg-secondary-foreground transition"
+        >
+          {t("Continue Shopping")}
+        </Link>
       </div>
     </>
   );

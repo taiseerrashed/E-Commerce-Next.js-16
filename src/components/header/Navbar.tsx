@@ -8,10 +8,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="hidden md:flex items-center space-x-8 text-lg font-medium">
+      <nav className="hidden md:flex items-center gap-6 text-lg font-medium">
         <Link href="/" className={`${pathname.endsWith("/") ? "text-main-color" : "text-secondary"} hover:text-main-color transition hover:-translate-y-1`}>{t("Home")}</Link>
         <Link href="/products" className={`${pathname.endsWith("/products") ? "text-main-color" : "text-secondary"} hover:text-main-color transition hover:-translate-y-1`}>{t("Products")}</Link>
-        <Link href="/contact" className={`${pathname.endsWith("/contact") ? "text-main-color" : "text-secondary"} hover:text-main-color transition hover:-translate-y-1`}>{t("Contact")}</Link>
+        <Link href="/categories" className={`${pathname.endsWith("/categories") ? "text-main-color" : "text-secondary"} hover:text-main-color transition hover:-translate-y-1`}>{t("Categories")}</Link>
+        <Link href="/brands" className={`${pathname.endsWith("/brands") ? "text-main-color" : "text-secondary"} hover:text-main-color transition hover:-translate-y-1`}>{t("Brands")}</Link>
       </nav>
     </>
   );

@@ -3,7 +3,7 @@ import CartActions from "./CartActions";
 import { useTranslations } from "next-intl";
 
 const CartView = () => {
-    const t = useTranslations("CartPage")
+  const t = useTranslations("CartPage")
   return (
     <section className="container space-y-8">
       {/* Title */}

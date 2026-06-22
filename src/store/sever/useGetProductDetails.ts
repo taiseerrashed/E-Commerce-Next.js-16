@@ -1,14 +1,17 @@
-import axios from "axios";
+import api from "@/lib/axios";
 import { useQuery } from "@tanstack/react-query";
-import { TProduct } from "@/utils/types";
+import { IProduct } from "@/utils/types";
 
-const getProductDetails = async (id: number): Promise<TProduct> => {
+interface IProductResponse {
+  data: IProduct;
+}
 
-  const { data } = await axios.get(`https://dummyjson.com/products/${id}`);  
+const getProductDetails = async (id: string): Promise<IProductResponse> => {
+  const { data } = await api.get(`/api/v1/products/${id}`);
   return data;
 };
 
-export const useGetProductDetails = (id: number) => {
+export const useGetProductDetails = (id: string) => {
   return useQuery({
     queryKey: ["product", id],
     queryFn: () => getProductDetails(id),

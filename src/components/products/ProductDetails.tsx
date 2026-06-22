@@ -10,10 +10,13 @@ import { Button } from "../ui/button";
 import FavoriteButton from "../common/FavoriteButton";
 import { useTranslations } from "next-intl";
 
-const ProductDetails = ({ id }: { id: number }) => {
+const ProductDetails = ({ id }: { id: string }) => {
   const { data, isLoading, isError } = useGetProductDetails(id);
+  const product = data?.data; // Access the product details from the response
+  
   const [quantity, setQuantity] = useState<number>(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  
   const t = useTranslations("ProductsPage");
 
   if (isLoading) {
@@ -33,7 +36,7 @@ const ProductDetails = ({ id }: { id: number }) => {
     );
   }
 
-  if (isError || !data) {
+  if (isError || !product) {
     return <p className="text-red-500">Failed to load product details.</p>;
   }
 
@@ -45,8 +48,8 @@ const ProductDetails = ({ id }: { id: number }) => {
           {/* Main Image */}
           <div className="relative w-full h-100 border rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src={data.images[selectedImage]}
-              alt={data.title}
+              src={product?.images[selectedImage]}
+              alt={product?.title}
               fill
               className="object-contain"
               sizes="100vw"
@@ -56,7 +59,7 @@ const ProductDetails = ({ id }: { id: number }) => {
 
           {/* Thumbnails */}
           <div className="flex items-center gap-3">
-            {data.images.map((img, index) => (
+            {product?.images.map((img, index) => (
               <button
                 key={index}
                 onClick={() => setSelectedImage(index)}
@@ -68,7 +71,7 @@ const ProductDetails = ({ id }: { id: number }) => {
               >
                 <Image
                   src={img}
-                  alt={data.title}
+                  alt={product?.title}
                   fill
                   className="object-contain"
                   sizes="80px"
@@ -82,30 +85,30 @@ const ProductDetails = ({ id }: { id: number }) => {
         <div className="space-y-5">
           {/* Category */}
           <span className="uppercase text-xs tracking-[3px] text-btn-color font-semibold">
-            {data.category}
+            {product?.category.name}
           </span>
 
           {/* Title */}
-          <h1 className="text-4xl font-bold">{data.title}</h1>
+          <h1 className="text-4xl font-bold">{product?.title}</h1>
 
           {/* Description */}
-          <p className="text-muted-foreground leading-8">{data.description}</p>
+          <p className="text-muted-foreground leading-8">{product?.description}</p>
 
           {/* Price */}
-          <h2 className="text-4xl font-bold text-btn-color">${data.price}</h2>
+          <h2 className="text-4xl font-bold text-btn-color">${product?.price}</h2>
 
           <div className="flex items-center justify-between">
             {/* Rating */}
-            <RatingStars rating={data.rating} />
+            <RatingStars rating={product?.ratingsAverage} />
             <FavoriteButton
-              product={data}
+              product={product}
               className="transition hover:scale-110"
             />
           </div>
 
           {/* Stock */}
           <p className="text-sm font-medium text-btn-color">
-            {t("In Stock")}: {data.stock}
+            {t("In Stock")}: {product?.quantity}
           </p>
 
           <div className="flex items-center gap-4">
@@ -133,7 +136,7 @@ const ProductDetails = ({ id }: { id: number }) => {
 
           {/* Add To Cart */}
           <AddToCartButton
-            product={data}
+            product={product}
             quantity={quantity}
             reset={() => setQuantity(1)}
             className="w-full h-12 text-lg flex items-center justify-center gap-2 hover:opacity-85 transition"

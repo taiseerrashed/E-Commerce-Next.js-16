@@ -19,8 +19,11 @@ const ProductsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { data, isLoading, isError } = useGetAllProducts(currentPage);
 
-  const products = data?.products || [];
-  const totalPages = Math.ceil((data?.total || 0) / PRODUCTS_PER_PAGE);
+  // const products = data?.products || [];
+  // const totalPages = Math.ceil((data?.total || 0) / PRODUCTS_PER_PAGE);
+
+  const products = data?.data || [];
+  const totalPages = data?.metadata.numberOfPages || 1;
 
   return (
     <div>
@@ -42,7 +45,7 @@ const ProductsPage = () => {
       {/* Products Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
-          <ProductItemCard key={product.id} product={product} />
+          <ProductItemCard key={product._id} product={product} />
         ))}
       </div>
 

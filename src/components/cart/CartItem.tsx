@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { TProduct } from "@/utils/types";
+import { IProduct } from "@/utils/types";
 import QuantityBox from "./QuantityBox";
 
-type TCartItem = TProduct & {
+type TCartItem = IProduct & {
   quantity: number;
 };
 
@@ -13,7 +13,7 @@ const CartItem = ({ item }: { item: TCartItem }) => {
       <div className="flex items-center gap-4">
         <div className="relative w-24 h-24 border rounded-2xl overflow-hidden bg-background shadow-lg">
           <Image
-            src={item.thumbnail}
+            src={item.imageCover}
             alt={item.title}
             fill
             className="object-contain p-2"
@@ -27,7 +27,7 @@ const CartItem = ({ item }: { item: TCartItem }) => {
             ${(item.price * item.quantity).toFixed(2)}
           </p>
 
-          <p className="text-sm text-muted-foreground">{item.category}</p>
+          <p className="text-sm text-muted-foreground">{item.category.name}</p>
         </div>
       </div>
 

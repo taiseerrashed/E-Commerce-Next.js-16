@@ -2,7 +2,8 @@
   "common": {
     "Home": "Home",
     "Products": "Products",
-    "Contact": "Contact",
+    "Categories": "Categories",
+    "Brands": "Brands",
     "ShopMart": "ShopMart"
   },
   "HomePage": {
@@ -31,7 +32,9 @@
     "newArrivalsSubtitle": "Discover the latest additions to our collection.",
     "categoryTitle": "Shop By Category",
     "categorySubtitle": "Curated categories for a premium browsing experience.",
-    "featuredCategory": "Featured Category"
+    "featuredCategory": "Featured Category",
+    "brandsTitle": "Popular Brands",
+    "brandsSubtitle": "Discover products from trusted and popular brands."
   },
   "ProductsPage": {
     "title": "Products",
@@ -48,7 +51,9 @@
     "emptydesc": "Looks like you haven't added anything yet.",
     "Remove": "Remove",
     "Clear Cart": "Clear Cart",
-    "Total": "Total"
+    "Total": "Total",
+    "Checkout": "Checkout",
+    "Continue Shopping": "Continue Shopping"
   },
   "FavoritesPage": {
     "title": "My Favorites",

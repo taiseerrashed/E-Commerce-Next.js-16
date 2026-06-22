@@ -1,19 +1,17 @@
 "use client";
 
-import { useGetFeaturedProducts } from "@/store/sever/useGetFeaturedProducts";
 import ProductSkeleton from "../common/ProductSkeleton";
 import ProductItem from "../common/ProductItem";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import SectionHeader from "../common/SectionHeader";
+import { useGetAllProducts } from "@/store/sever/useGetAllProducts";
 
 const FeaturedProducts = () => {
   const t = useTranslations("HomePage");
-  const { data, isLoading, isError } = useGetFeaturedProducts();
+  const { data, isLoading, isError } = useGetAllProducts(1);
+  const featuredProducts = data?.data.slice(0,8) || [];
 
-  // if(isError) {
-  //   throw new Error("Failed to fetch featured products");
-  // }
 
   return (
     <section className="space-y-6">
@@ -40,11 +38,11 @@ const FeaturedProducts = () => {
           Failed to load featured products. Please try again later.
         </p>
       )}
-      {!isLoading && data?.products && (
+      {!isLoading && featuredProducts && (
         <div className="overflow-x-auto">
           <div className="flex gap-6 min-w-max pb-4">
-            {data.products.map((product) => (
-              <div key={product.id} className="w-65 shrink-0">
+            {featuredProducts.map((product) => (
+              <div key={product._id} className="w-65 shrink-0">
                 <ProductItem product={product} isFeatured={true} />
               </div>
             ))}

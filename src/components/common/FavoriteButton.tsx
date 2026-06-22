@@ -1,18 +1,19 @@
 "use client";
 
-import { TProduct } from "@/utils/types";
+import { IProduct, TProduct } from "@/utils/types";
 import { useFavoritesStore } from "@/store/client/favorites-store";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 interface IFavoriteButtonProps {
-  product: TProduct;
+  // product: TProduct;
+  product: IProduct;
   className?: string;
 }
 
 const FavoriteButton = ({ product, className }: IFavoriteButtonProps) => {
   const { toggleFavorite, isFavorite } = useFavoritesStore();
 
-  const favorite = isFavorite(product.id);
+  const favorite = isFavorite(product._id);
 
   return (
     <button

@@ -1,23 +1,13 @@
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { TProduct } from "@/utils/types";
+import { TProductsResponse } from "@/utils/types";
+import api from "@/lib/axios";
 
-interface IProductsResponse {
-  products: TProduct[];
-  total: number;
-  skip: number;
-  limit: number;
-}
-
-const getAllProducts = async (page: number): Promise<IProductsResponse> => {
-  const limit = 12;
-  const skip = (page - 1) * limit;
-
-  const { data } = await axios.get(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);  
+const getAllProducts = async (page?: number): Promise<TProductsResponse> => {
+  const { data } = await api.get(`/api/v1/products?page=${page}&limit=12`);
   return data;
 };
 
-export const useGetAllProducts = (page: number) => {
+export const useGetAllProducts = (page?: number) => {
   return useQuery({
     queryKey: ["products", page],
     queryFn: () => getAllProducts(page),

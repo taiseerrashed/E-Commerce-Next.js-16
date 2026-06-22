@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { TProduct } from "@/utils/types";
+import { IProduct } from "@/utils/types";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
@@ -9,7 +9,7 @@ import AddToCartButton from "./AddToCartButton";
 import FavoriteButton from "./FavoriteButton";
 
 interface IProductItemProps {
-  product: TProduct;
+  product: IProduct;
 }
 const ProductItemCard = ({ product }: IProductItemProps) => {
   const t = useTranslations("ProductsPage");
@@ -19,11 +19,11 @@ const ProductItemCard = ({ product }: IProductItemProps) => {
       {/* Favorite */}
       <FavoriteButton product={product} />
 
-      <Link href={`/products/${product.id}`} className="space-y-4">
+      <Link href={`/products/${product._id}`} className="space-y-4">
         {/* Image */}
         <CardHeader className="flex justify-center">
           <Image
-            src={product.thumbnail}
+            src={product.imageCover}
             alt={product.title}
             width={150}
             height={150}
@@ -44,19 +44,19 @@ const ProductItemCard = ({ product }: IProductItemProps) => {
             {/* Brand */}
             <p className="text-sm font-thin">
               {t("Brand")} :{" "}
-              <span className="font-medium">{product.brand}</span>
+              <span className="font-medium">{product.brand.name}</span>
             </p>
             {/* Category */}
             <p className="text-sm font-thin">
               {t("Category")} :{" "}
-              <span className="font-medium">{product.category}</span>
+              <span className="font-medium">{product.category.name}</span>
             </p>
             {/* Stock */}
             <p className="font-bold text-green-800">
-              {t("In Stock")} : <span>{product.stock}</span>
+              {t("In Stock")} : <span>{product.quantity}</span>
             </p>
             {/* Stars */}
-            <RatingStars rating={product.rating} />
+            <RatingStars rating={product.ratingsAverage} />
           </div>
         </CardContent>
       </Link>

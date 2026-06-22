@@ -3,10 +3,10 @@
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/store/client/cart-store";
 import { FiMinus, FiPlus, FiTrash2 } from "react-icons/fi";
-import { TProduct } from "@/utils/types";
+import { IProduct } from "@/utils/types";
 import { useTranslations } from "next-intl";
 
-type TCartItem = TProduct & {
+type TCartItem = IProduct & {
   quantity: number;
 };
 
@@ -22,7 +22,7 @@ const QuantityBox = ({ item }: { item: TCartItem }) => {
           variant="outline"
           size="icon"
           disabled={item.quantity === 1}
-          onClick={() => decreaseQuantity(item.id)}
+          onClick={() => decreaseQuantity(item._id)}
         >
           <FiMinus />
         </Button>
@@ -34,7 +34,7 @@ const QuantityBox = ({ item }: { item: TCartItem }) => {
         <Button
           variant="outline"
           size="icon"
-          onClick={() => increaseQuantity(item.id)}
+          onClick={() => increaseQuantity(item._id)}
         >
           <FiPlus />
         </Button>
@@ -44,7 +44,7 @@ const QuantityBox = ({ item }: { item: TCartItem }) => {
       <Button
         variant="destructive"
         className="flex items-center gap-2"
-        onClick={() => removeFromCart(item.id)}
+        onClick={() => removeFromCart(item._id)}
       >
         <FiTrash2 />
         {t("Remove")}

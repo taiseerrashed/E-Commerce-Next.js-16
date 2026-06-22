@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { TProduct } from "@/utils/types";
+import { IProduct } from "@/utils/types";
 import { Link } from "@/i18n/navigation";
-import { FaHeart } from "react-icons/fa";
 import { IoAdd } from "react-icons/io5";
 import { useTranslations } from "next-intl";
 import RatingStars from "./RatingStars";
@@ -9,7 +8,7 @@ import AddToCartButton from "./AddToCartButton";
 import FavoriteButton from "./FavoriteButton";
 
 interface IProductItemProps {
-  product: TProduct;
+  product: IProduct;
   isFeatured?: boolean;
 }
 
@@ -19,18 +18,21 @@ const ProductItem = ({ product, isFeatured = false }: IProductItemProps) => {
   return (
     <div className="bg-white relative rounded-2xl border p-4 space-y-3 bover:border hover:border-btn-color hover:shadow-xl hover:-translate-y-1 transition">
       {/* discount */}
-      {product.discountPercentage > 0 && (
+      {/* {product.discountPercentage > 0 && (
         <span className="absolute top-3 ltr:left-3 rtl:right-3 z-10 text-xs text-secondary bg-btn-color font-semibold px-2 py-1 rounded-md">
           {Math.round(product.discountPercentage)}% {t("OFF")}
         </span>
-      )}
+      )} */}
+      <span className="absolute top-3 ltr:left-3 rtl:right-3 z-10 text-xs text-secondary bg-btn-color font-semibold px-2 py-1 rounded-md">
+        {product.brand.name}
+      </span>
       {/* Favorite */}
       <FavoriteButton product={product} />
 
       {/* Image */}
-      <Link href={`/products/${product.id}`} className="flex justify-center">
+      <Link href={`/products/${product._id}`} className="flex justify-center">
         <Image
-          src={product.thumbnail}
+          src={product.imageCover}
           alt={product.title}
           width={150}
           height={150}
@@ -71,7 +73,7 @@ const ProductItem = ({ product, isFeatured = false }: IProductItemProps) => {
       {/* Rating + Cart */}
       <div className="flex items-center justify-between">
         {/* Stars */}
-        <RatingStars rating={product.rating} />
+        <RatingStars rating={product.ratingsAverage} />
         {/* Add to cart */}
         <AddToCartButton
           product={product}

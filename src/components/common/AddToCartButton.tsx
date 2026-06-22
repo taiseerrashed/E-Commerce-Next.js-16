@@ -1,12 +1,13 @@
 "use client";
 
-import { TProduct } from "@/utils/types";
+import { IProduct, TProduct } from "@/utils/types";
 import { Button } from "../ui/button";
 import { useCartStore } from "@/store/client/cart-store";
 import { ReactNode } from "react";
 
 interface IAddToCartButtonProps {
-  product: TProduct;
+  // product: TProduct;
+  product: IProduct;
   children: ReactNode;
   className?: string;
   quantity?: number;

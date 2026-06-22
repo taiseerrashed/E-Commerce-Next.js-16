@@ -55,3 +55,68 @@ export type TCategory = {
     ar: string;
   };
 };
+
+export interface IApiResponse<T> {
+  results: number;
+  metadata: {
+    currentPage: number;
+    numberOfPages: number;
+    limit: number;
+  };
+  data: T[];
+}
+export interface ICategory {
+  _id: string;
+  name: string;
+  slug: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type TCategoriesResponse = IApiResponse<ICategory>;
+export interface IBrand {
+  _id: string;
+  name: string;
+  slug: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type TBrandsResponse = IApiResponse<IBrand>;
+
+export interface ISubCategory {
+  _id: string;
+  name: string;
+  slug: string;
+  category: string;
+}
+
+export interface IProduct {
+  sold: number;
+  images: string[];
+  subcategory: ISubCategory[];
+
+  ratingsQuantity: number;
+  ratingsAverage: number;
+
+  _id: string;
+
+  title: string;
+  slug: string;
+  description: string;
+
+  quantity: number;
+  price: number;
+
+  imageCover: string;
+
+  category: ICategory;
+  brand: IBrand;
+
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type TProductsResponse = IApiResponse<IProduct>;

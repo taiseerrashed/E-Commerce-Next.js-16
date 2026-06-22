@@ -1,17 +1,17 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { TProduct } from "@/utils/types";
+import { IProduct } from "@/utils/types";
 
-type TCartItem = TProduct & {
+type TCartItem = IProduct & {
   quantity: number;
 };
 
 interface ICartStore {
   cart: TCartItem[];
-  addToCart: (product: TProduct, quantity: number) => void;
-  removeFromCart: (id: number) => void;
-  increaseQuantity: (id: number) => void;
-  decreaseQuantity: (id: number) => void;
+  addToCart: (product: IProduct, quantity: number) => void;
+  removeFromCart: (_id: string) => void;
+  increaseQuantity: (_id: string) => void;
+  decreaseQuantity: (_id: string) => void;
   clearCart: () => void;
 }
 
@@ -22,12 +22,12 @@ export const useCartStore = create<ICartStore>()(
 
       addToCart: (product, quantity) =>
         set((state) => {
-          const existing = state.cart.find((item) => item.id === product.id);
+          const existing = state.cart.find((item) => item._id === product._id);
 
           if (existing) {
             return {
               cart: state.cart.map((item) =>
-                item.id === product.id
+                item._id === product._id
                   ? {
                       ...item,
                       quantity: item.quantity + quantity,
@@ -50,13 +50,13 @@ export const useCartStore = create<ICartStore>()(
 
       removeFromCart: (id) =>
         set((state) => ({
-          cart: state.cart.filter((item) => item.id !== id),
+          cart: state.cart.filter((item) => item._id !== id),
         })),
 
       increaseQuantity: (id) =>
         set((state) => ({
           cart: state.cart.map((item) =>
-            item.id === id
+            item._id === id
               ? {
                   ...item,
                   quantity: item.quantity + 1,
@@ -69,7 +69,7 @@ export const useCartStore = create<ICartStore>()(
         set((state) => ({
           cart: state.cart
             .map((item) =>
-              item.id === id
+              item._id === id
                 ? {
                     ...item,
                     quantity: item.quantity - 1,

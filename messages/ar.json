@@ -2,7 +2,8 @@
   "common": {
     "Home": "الصفحة الرئيسية",
     "Products": "المنتجات",
-    "Contact": "اتصل بنا",
+    "Categories": "الفئات",
+    "Brands": "العلامات التجارية",
     "ShopMart": "شوب مارت"
   },
   "HomePage": {
@@ -31,7 +32,9 @@
     "newArrivalsSubtitle": "اكتشف أحدث الإضافات إلى مجموعتنا.",
     "categoryTitle": "تسوق حسب الفئة",
     "categorySubtitle": "فئات مختارة بعناية لتجربة تصفح مميزة.",
-    "featuredCategory": "فئة مميزة"
+    "featuredCategory": "فئة مميزة",
+    "brandsTitle": "العلامات التجارية",
+    "brandsSubtitle": "اكتشف المنتجات من العلامات التجارية الموثوقة والشائعة."
   },
   "ProductsPage": {
     "title": "قائمة المنتجات",
@@ -48,7 +51,9 @@
     "emptydesc": "يبدو أنك لم تُضف أي شيء بعد.",
     "Remove": "حذف",
     "Clear Cart": "إفراغ السلة",
-    "Total": "الإجمالي"
+    "Total": "الإجمالي",
+    "Checkout": "الدفع",
+    "Continue Shopping": "مواصلة التسوق"
   },
   "FavoritesPage": {
     "title": "المفضلة",
