@@ -45,6 +45,16 @@
     "Quick Add To Cart": "Quick Add To Cart",
     "Add to Cart": "Add to Cart"
   },
+  "CategoriesPage": {
+    "label": "Shop by Category",
+    "title": "Categories",
+    "description": "Explore our main product categories and find what you need faster."
+  },
+  "BrandsPage": {
+    "label": "Popular Brands",
+    "title": "Brands",
+    "description": "Discover products from our available brands."
+  },
   "CartPage": {
     "title": "Shopping Cart",
     "emptyTitle": "Your Cart is Empty",
@@ -61,5 +71,96 @@
     "emptyDescription": "Save products you love to view them later.",
     "addToCart": "Add to Cart",
     "clear": "Clear Favorites"
+  },
+  "OfferBanner": {
+    "badge": "Limited Time Offer",
+    "title": "Get the best deals on selected products.",
+    "description": "Explore our latest offers and discover products with special discounts for a limited time.",
+    "shopOffers": "Shop Offers",
+    "browseCategories": "Browse Categories"
+  },
+  "Footer": {
+    "description": "ShopMart is your one-stop destination for quality products. From fashion to electronics, we bring you the best brands at competitive prices.",
+
+    "shop": "Shop",
+    "allProducts": "All Products",
+    "categories": "Categories",
+    "brands": "Brands",
+
+    "account": "Account",
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "wishlist": "Wishlist",
+    "shoppingCart": "Shopping Cart",
+    "orders": "Orders",
+
+    "support": "Support",
+    "contactUs": "Contact Us",
+    "helpCenter": "Help Center",
+    "shippingInfo": "Shipping Info",
+    "returnsRefunds": "Returns & Refunds",
+
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+
+    "ShopMart": "ShopMart",
+    "Taiseer": "Taiseer",
+    "allRightsReserved": "All rights reserved.",
+    "developedBy": "developed by",
+
+    "location": "Sharqia, Egypt"
+  },
+  
+  "PrivacyPolicy": {
+    "title": "Privacy Policy",
+    "description": "Learn how we collect, use, and protect your information.",
+    "paragraph1": "We respect your privacy and are committed to protecting your personal information.",
+    "paragraph2": "Information collected is used only to provide services and improve user experience.",
+    "paragraph3": "We do not sell personal information to third parties."
+  },
+  "TermsOfService": {
+    "title": "Terms of Service",
+    "description": "Rules and conditions for using ShopMart.",
+    "item1": "Users are responsible for maintaining the security of their accounts and passwords.",
+    "item2": "All product information is provided for informational purposes and may be updated without notice.",
+    "item3": "We reserve the right to modify, suspend, or discontinue any part of our services at any time.",
+    "item4": "Any unauthorized use of the website or its content is strictly prohibited."
+  },
+  "ShippingInfo": {
+    "title": "Shipping Information",
+    "description": "Everything about shipping and delivery.",
+    "item1": "Orders are processed within 1–2 business days.",
+    "item2": "Delivery takes 3–7 business days.",
+    "item3": "Shipping times may vary based on location.",
+    "item4": "Tracking information will be provided after shipment."
+  },
+
+  "ReturnsRefunds": {
+    "title": "Returns & Refunds",
+    "description": "Our return and refund policy.",
+    "item1": "Returns are accepted within 14 days of receiving your order.",
+    "item2": "Products must be unused and returned in their original condition.",
+    "item3": "Refunds are processed after the returned items have been inspected and approved.",
+    "item4": "Shipping fees are non-refundable unless the return is due to our error."
+  },
+
+  "HelpCenter": {
+    "title": "Help Center",
+    "description": "Frequently asked questions.",
+    "question1": "How do I place an order?",
+    "answer1": "Browse products, add items to your cart, and proceed to checkout to complete your purchase.",
+
+    "question2": "How can I track my order?",
+    "answer2": "You can view your order status and history from the Orders page after logging into your account.",
+
+    "question3": "How can I contact support?",
+    "answer3": "You can reach us through the Contact Us page or by using the contact information provided."
+  },
+
+  "Contact": {
+    "title": "Contact Us",
+    "description": "We're here to help. Feel free to reach out to us with any questions or concerns.",
+    "location": "Egypt"
   }
 }

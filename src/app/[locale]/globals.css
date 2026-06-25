@@ -84,6 +84,8 @@
   --color-main-color: var(--main-color);
   
   --color-btn-color: var(--btn-color);
+  
+  --color-dark-background: var(--dark-background);
 
   --radius-sm: calc(var(--radius) * 0.6);
 
@@ -107,6 +109,7 @@
   --secondary: hsl(44, 75%, 86%);
   --secondary-foreground: hsl(44, 62%, 77%);
   --btn-color: hsl(0, 81%, 23%);
+  --dark-background: hsla(0, 100%, 3%, 0.995);
 
   --background: oklch(1 0 0);
 

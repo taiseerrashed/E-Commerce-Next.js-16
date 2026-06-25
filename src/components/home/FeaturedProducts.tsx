@@ -1,6 +1,6 @@
 "use client";
 
-import ProductSkeleton from "../common/ProductSkeleton";
+import ProductSkeleton from "../products/ProductSkeleton";
 import ProductItem from "../common/ProductItem";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -15,11 +15,11 @@ const FeaturedProducts = () => {
 
   return (
     <section className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex justify-between">
         <SectionHeader title={t("featuredTitle")} subtitle={t("featuredSubtitle")} />
         <Link
           href={"/products"}
-          className="text-btn-color text-sm font-semibold"
+          className="text-btn-color text-sm font-semibold shrink-0"
         >
           {t("View All")}
         </Link>

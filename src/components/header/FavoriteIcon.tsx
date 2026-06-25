@@ -2,14 +2,13 @@
 
 import { Link } from "@/i18n/navigation";
 import { useFavoritesStore } from "@/store/client/favorites-store";
-import React from "react";
 import { FaHeart } from "react-icons/fa";
 
 export const FavoriteIcon = () => {
   const { favorites } = useFavoritesStore();
 
   return (
-    <Link href="/favorites" className="relative">
+    <Link href="/wishlist" className="relative">
       <FaHeart className="text-xl text-main-color" />
 
       {favorites.length > 0 && (

@@ -2,17 +2,17 @@ import Link from "next/link";
 import Navbar from "./Navbar";
 import ToggleMenu from "./ToggleMenu";
 import LanguageSwitcher from "../common/LanguageSwitcher";
-import { useTranslations } from "next-intl";
 import CartIcon from "./CartIcon";
 import { FavoriteIcon } from "./FavoriteIcon";
+import Image from "next/image";
+import { getLocale } from "next-intl/server";
 
-const Header = () => {
-  const t = useTranslations("common");
-
+const Header = async () => {
+  const locale = await getLocale();
   return (
     <>
       <header className="fixed top-0 bg-primary/95 w-full backdrop-blur-sm border-secondary border-b-3 z-50">
-        <div className="container p-4">
+        <div className="container px-4 md:px-1 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <ToggleMenu />
@@ -20,23 +20,14 @@ const Header = () => {
                 href="/"
                 className="flex items-center gap-2 font-bold text-2xl"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-crown text-main-color bg-primary rounded-sm p-1 border border-main-color"
-                  aria-hidden="true"
-                >
-                  <path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"></path>
-                  <path d="M5 21h14"></path>
-                </svg>
-                <span className=" text-secondary">{t("ShopMart")}</span>
+                <Image
+                  src={locale === "en" ? "/images/en-logo.png" : "/images/ar-logo.png"}
+                  alt="ShopMart Logo"
+                  width={150}
+                  height={150}
+                  priority
+                  className="h-14 object-cover"
+                />
               </Link>
             </div>
             <Navbar />

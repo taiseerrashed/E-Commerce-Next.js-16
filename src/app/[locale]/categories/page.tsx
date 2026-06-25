@@ -1,8 +1,20 @@
+import CategoriesList from "@/components/categories/CategoriesList";
+import PageHeader from "@/components/common/PageHeader";
+import { getTranslations } from "next-intl/server";
 
-const page = () => {
+const page = async () => {
+  const t = await getTranslations("CategoriesPage");
   return (
-    <div>page</div>
-  )
-}
+    <section className="container">
+      <PageHeader
+        label={t("label")}
+        title={t("title")}
+        description={t("description")}
+      />
 
-export default page
+      <CategoriesList />
+    </section>
+  );
+};
+
+export default page;

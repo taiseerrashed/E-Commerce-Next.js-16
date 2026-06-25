@@ -6,7 +6,7 @@ const page = async () => {
 
   return (
     <section className="container">
-      <div className="text-center mb-10">
+      <div className="text-center mb-8">
         <h2 className="text-3xl font-bold">{t("title")}</h2>
         <p className="text-gray-500 mt-2">{t("subtitle")}</p>
       </div>

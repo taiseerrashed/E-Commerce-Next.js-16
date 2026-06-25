@@ -8,11 +8,11 @@ const Categories = async () => {
   return (
     <section className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex justify-between">
         <SectionHeader title={t("categoryTitle")} subtitle={t("categorySubtitle")}/>
         <Link
           href={"/categories"}
-          className="text-btn-color text-sm font-semibold"
+          className="text-btn-color text-sm font-semibold shrink-0"
         >
           {t("View All")}
         </Link>

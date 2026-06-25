@@ -11,16 +11,13 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { useGetAllProducts } from "@/store/sever/useGetAllProducts";
-import { PRODUCTS_PER_PAGE } from "@/utils/constants";
-import ProductSkeleton from "../common/ProductSkeleton";
+import ProductSkeleton from "./ProductSkeleton";
 import ProductItemCard from "../common/ProductItemCard";
+import { Button } from "../ui/button";
 
 const ProductsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const { data, isLoading, isError } = useGetAllProducts(currentPage);
-
-  // const products = data?.products || [];
-  // const totalPages = Math.ceil((data?.total || 0) / PRODUCTS_PER_PAGE);
+  const { data, isLoading, isError, refetch } = useGetAllProducts(currentPage);
 
   const products = data?.data || [];
   const totalPages = data?.metadata.numberOfPages || 1;
@@ -37,9 +34,14 @@ const ProductsPage = () => {
         </div>
       )}
       {!isLoading && isError && (
-        <p className="text-destructive">
-          Failed to load products. Please try again later.
-        </p>
+        <div className="flex flex-col items-center justify-center py-10">
+          <p className="text-destructive">
+            Failed to load products. Please try again later.
+          </p>
+          <Button onClick={() => refetch()} className="mt-2 text-btn-color">
+            Try Again
+          </Button>
+        </div>
       )}
 
       {/* Products Grid */}
@@ -50,7 +52,7 @@ const ProductsPage = () => {
       </div>
 
       {/* Pagination */}
-      <Pagination className="my-10">
+      <Pagination className="mt-10">
         <PaginationContent>
           {/* Previous */}
           <PaginationItem>

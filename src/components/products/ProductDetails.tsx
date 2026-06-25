@@ -9,27 +9,28 @@ import AddToCartButton from "../common/AddToCartButton";
 import { Button } from "../ui/button";
 import FavoriteButton from "../common/FavoriteButton";
 import { useTranslations } from "next-intl";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const ProductDetails = ({ id }: { id: string }) => {
   const { data, isLoading, isError } = useGetProductDetails(id);
   const product = data?.data; // Access the product details from the response
-  
+
   const [quantity, setQuantity] = useState<number>(1);
   const [selectedImage, setSelectedImage] = useState(0);
-  
+
   const t = useTranslations("ProductsPage");
 
   if (isLoading) {
     return (
       <div className="border rounded-3xl p-6 animate-pulse">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-gray-200 h-100 rounded-2xl" />
+          <Skeleton className="h-100 rounded-2xl" />
           <div className="space-y-4">
-            <div className="bg-gray-200 h-6 w-24 rounded" />
-            <div className="bg-gray-200 h-10 w-72 rounded" />
-            <div className="bg-gray-200 h-24 w-full rounded" />
-            <div className="bg-gray-200 h-8 w-32 rounded" />
-            <div className="bg-gray-200 h-12 w-full rounded-xl" />
+            <Skeleton className="h-6 w-24" />
+            <Skeleton className="h-10 w-72" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-8 w-32" />
+            <Skeleton className="h-12 w-full rounded-xl" />
           </div>
         </div>
       </div>
@@ -83,19 +84,29 @@ const ProductDetails = ({ id }: { id: string }) => {
 
         {/* RIGHT SIDE */}
         <div className="space-y-5">
-          {/* Category */}
-          <span className="uppercase text-xs tracking-[3px] text-btn-color font-semibold">
-            {product?.category.name}
-          </span>
+          {/* Category & Brand */}
+          <div className="flex items-center gap-2">
+            <span className="text-sm uppercase tracking-[3px] text-btn-color font-semibold">
+              {product.category.name}
+            </span>
+
+            <span className="text-muted-foreground">•</span>
+
+            <span className="font-medium text-sm">{product.brand.name}</span>
+          </div>
 
           {/* Title */}
           <h1 className="text-4xl font-bold">{product?.title}</h1>
 
           {/* Description */}
-          <p className="text-muted-foreground leading-8">{product?.description}</p>
+          <p className="text-muted-foreground leading-8">
+            {product?.description}
+          </p>
 
           {/* Price */}
-          <h2 className="text-4xl font-bold text-btn-color">${product?.price}</h2>
+          <h2 className="text-4xl font-bold text-btn-color">
+            ${product?.price}
+          </h2>
 
           <div className="flex items-center justify-between">
             {/* Rating */}

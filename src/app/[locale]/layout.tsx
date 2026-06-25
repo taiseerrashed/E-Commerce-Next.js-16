@@ -53,7 +53,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <ReactQueryProvider>
             <Header />
-            <main className="mt-30 container px-2 space-y-14 min-h-screen">
+            <main className="mt-30 pb-18 container px-2 space-y-14">
               <Suspense fallback={<Loading />}>{children}</Suspense>
             </main>
             <Footer />
