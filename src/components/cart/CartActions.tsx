@@ -43,7 +43,7 @@ const CartActions = () => {
       {/* Cart Items */}
       <Card className="p-6 shadow-xl rounded-3xl space-y-6">
         {cart.map((item) => (
-          <CartItem key={item.id} item={item} />
+          <CartItem key={item._id} item={item} />
         ))}
       </Card>
 
