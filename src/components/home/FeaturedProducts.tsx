@@ -9,7 +9,7 @@ import { useGetAllProducts } from "@/store/sever/useGetAllProducts";
 
 const FeaturedProducts = () => {
   const t = useTranslations("HomePage");
-  const { data, isLoading, isError } = useGetAllProducts(1);
+  const { data, isLoading, isError } = useGetAllProducts({page: 1});
   const featuredProducts = data?.data.slice(0,8) || [];
 
 

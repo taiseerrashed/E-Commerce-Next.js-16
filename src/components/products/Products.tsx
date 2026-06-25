@@ -17,7 +17,10 @@ import { Button } from "../ui/button";
 
 const ProductsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const { data, isLoading, isError, refetch } = useGetAllProducts(currentPage);
+  const { data, isLoading, isError, refetch } = useGetAllProducts({
+    page: currentPage,
+    limit: 12,
+  });
 
   const products = data?.data || [];
   const totalPages = data?.metadata.numberOfPages || 1;

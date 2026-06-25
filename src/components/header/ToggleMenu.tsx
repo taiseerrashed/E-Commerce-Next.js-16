@@ -18,7 +18,7 @@ const ToggleMenu = () => {
       </button>
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-12 left-0 w-48 bg-primary shadow-lg rounded-lg p-4 flex flex-col space-y-4 z-50 transition-all duration-300 ease-in-out">
+        <div className="absolute top-12 left-0 rtl:right-0 w-48 bg-primary shadow-lg rounded-lg p-4 flex flex-col space-y-4 z-50 transition-all duration-300 ease-in-out">
           <Link
             href="/"
             onClick={() => setIsOpen(false)}

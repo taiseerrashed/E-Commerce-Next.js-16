@@ -1,8 +1,10 @@
-import React from 'react'
+import BrandDetails from "@/components/brands/BrandDetails";
 
-const page = () => {
+const page = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
+
   return (
-    <div>page</div>
+    <BrandDetails id={id} />
   )
 }
 

@@ -17,12 +17,6 @@ const ProductItem = ({ product, isFeatured = false }: IProductItemProps) => {
 
   return (
     <div className="bg-white relative rounded-2xl border p-4 space-y-3 bover:border hover:border-btn-color hover:shadow-xl hover:-translate-y-1 transition">
-      {/* discount */}
-      {/* {product.discountPercentage > 0 && (
-        <span className="absolute top-3 ltr:left-3 rtl:right-3 z-10 text-xs text-secondary bg-btn-color font-semibold px-2 py-1 rounded-md">
-          {Math.round(product.discountPercentage)}% {t("OFF")}
-        </span>
-      )} */}
       <span className="absolute top-3 ltr:left-3 rtl:right-3 z-10 text-xs text-secondary bg-btn-color font-semibold px-2 py-1 rounded-md">
         {product.brand.name}
       </span>

@@ -19,7 +19,7 @@ const ProductItemCard = ({ product }: IProductItemProps) => {
       {/* Favorite */}
       <FavoriteButton product={product} />
 
-      <Link href={`/products/${product._id}`} className="space-y-4">
+      <Link href={`/products/${product._id}`} className="space-y-4 group">
         {/* Image */}
         <CardHeader className="flex justify-center">
           <Image
@@ -27,7 +27,7 @@ const ProductItemCard = ({ product }: IProductItemProps) => {
             alt={product.title}
             width={150}
             height={150}
-            className="object-contain h-45"
+            className="h-45 w-full object-cover transition duration-500 group-hover:scale-110 rounded-md"
           />
         </CardHeader>
         <CardContent className="space-y-2">

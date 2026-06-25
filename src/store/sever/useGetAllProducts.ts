@@ -2,14 +2,23 @@ import { useQuery } from "@tanstack/react-query";
 import { TProductsResponse } from "@/utils/types";
 import api from "@/lib/axios";
 
-const getAllProducts = async (page?: number): Promise<TProductsResponse> => {
-  const { data } = await api.get(`/api/v1/products?page=${page}&limit=12`);
+interface IParams {
+  page?: number;
+  limit?: number;
+  brand?: string;
+  category?: string;
+  search?: string;
+  sort?: string;
+}
+
+const getAllProducts = async (params?: IParams): Promise<TProductsResponse> => {
+  const { data } = await api.get("/api/v1/products", { params, });
   return data;
 };
 
-export const useGetAllProducts = (page?: number) => {
+export const useGetAllProducts = (params?: IParams) => {
   return useQuery({
-    queryKey: ["products", page],
-    queryFn: () => getAllProducts(page),
+    queryKey: ["products", params],
+    queryFn: () => getAllProducts(params),
   });
 };

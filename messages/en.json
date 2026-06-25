@@ -48,12 +48,24 @@
   "CategoriesPage": {
     "label": "Shop by Category",
     "title": "Categories",
-    "description": "Explore our main product categories and find what you need faster."
+    "description": "Explore our main product categories and find what you need faster.",
+
+    "backToCategories": "Back to categories",
+    "category": "Category",
+    "categoryProducts": "Category Products",
+    "categoryDescription": "Browse all products available in this category and discover the best deals selected for you.",
+    "productsFound": "{count} products found"
   },
   "BrandsPage": {
     "label": "Popular Brands",
     "title": "Brands",
-    "description": "Discover products from our available brands."
+    "description": "Discover products from our available brands.",
+
+    "backToBrands": "Back to brands",
+    "brand": "Brand",
+    "brandProducts": "Brand Products",
+    "brandDescription": "Explore all available products from this brand and discover the best offers.",
+    "productsFound": "{count} products found"
   },
   "CartPage": {
     "title": "Shopping Cart",
@@ -111,7 +123,7 @@
 
     "location": "Sharqia, Egypt"
   },
-  
+
   "PrivacyPolicy": {
     "title": "Privacy Policy",
     "description": "Learn how we collect, use, and protect your information.",
