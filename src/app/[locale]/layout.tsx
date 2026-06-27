@@ -4,7 +4,7 @@ import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
-import { getLocale } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import { Roboto } from "next/font/google";
 import ReactQueryProvider from "@/components/providers/ReactQueryProvider";
 import { Suspense } from "react";
@@ -43,6 +43,7 @@ export default async function LocaleLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const messages = await getMessages();
 
   return (
     <html
@@ -51,7 +52,7 @@ export default async function LocaleLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${inter.variable} ${inter.className} h-full antialiased`}
     >
       <body>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
           <ReactQueryProvider>
             <Header />
             <main className="mt-30 pb-18 container px-2 space-y-14">
