@@ -9,6 +9,7 @@ import { Roboto } from "next/font/google";
 import ReactQueryProvider from "@/components/providers/ReactQueryProvider";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,6 +60,7 @@ export default async function LocaleLayout({
             <Footer />
           </ReactQueryProvider>
         </NextIntlClientProvider>
+        <Toaster position="top-center" />
       </body>
     </html>
   );

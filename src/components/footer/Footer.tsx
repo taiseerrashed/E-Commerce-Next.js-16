@@ -11,7 +11,7 @@ import {
 import { MdEmail } from "react-icons/md";
 import { getLocale, getTranslations } from "next-intl/server";
 
-const Footer = async() => {
+const Footer = async () => {
   const t = await getTranslations("Footer");
   const locale = await getLocale();
 
@@ -22,7 +22,9 @@ const Footer = async() => {
         <div className="col-span-1 md:col-span-2">
           <Link href="/" className="mb-3">
             <Image
-              src={locale === "en" ? "/images/en-logo.png" : "/images/ar-logo.png"}
+              src={
+                locale === "en" ? "/images/en-logo.png" : "/images/ar-logo.png"
+              }
               alt="ShopMart Logo"
               width={100}
               height={100}
@@ -30,9 +32,7 @@ const Footer = async() => {
             />
           </Link>
 
-          <p className="leading-7 text-gray-400">
-            {t("description")}
-          </p>
+          <p className="leading-7 text-gray-400">{t("description")}</p>
 
           <div className="space-y-2 text-gray-400 mt-4">
             <p className="flex items-center gap-2">
@@ -199,14 +199,15 @@ const Footer = async() => {
       <div className="container text-center border-t border-gray-700 pt-4">
         <p>
           &copy; {new Date().getFullYear()}{" "}
-          <span className="text-main-color">{t("ShopMart")}</span> {t("developedBy")}{" "}
+          <span className="text-main-color">{t("ShopMart")}</span>{" "}
+          {t("developedBy")}{" "}
           <a
             href="https://personal-portfolio-inky-one.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-main-color hover:underline font-medium"
           >
-            {t("Taiseer")}
+            {t("Taiseer")}.{" "}
           </a>
           {t("allRightsReserved")}
         </p>

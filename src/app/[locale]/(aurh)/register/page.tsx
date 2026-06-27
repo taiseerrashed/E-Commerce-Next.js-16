@@ -1,7 +1,8 @@
+import Register from "@/components/auth/Register";
 
 const page = () => {
   return (
-    <div>page</div>
+    <Register />
   )
 }
 

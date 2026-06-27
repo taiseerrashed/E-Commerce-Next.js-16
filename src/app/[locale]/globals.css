@@ -87,6 +87,8 @@
   
   --color-dark-background: var(--dark-background);
 
+  --color-success: var(--success);
+
   --radius-sm: calc(var(--radius) * 0.6);
 
   --radius-md: calc(var(--radius) * 0.8);
@@ -110,6 +112,7 @@
   --secondary-foreground: hsl(44, 62%, 77%);
   --btn-color: hsl(0, 81%, 23%);
   --dark-background: hsla(0, 100%, 3%, 0.995);
+  --success: hsl(138, 94%, 31%);
 
   --background: oklch(1 0 0);
 

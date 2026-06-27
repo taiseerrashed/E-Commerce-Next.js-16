@@ -1,3 +1,26 @@
+export type TCredentials = {
+  email: string;
+  password: string;
+}
+export type TUserData = {
+  name: string;
+  email: string;
+  phone: string;
+  password: string;
+  rePassword: string;
+}
+
+export type TUser = {
+  name: string;
+  email: string;
+  role: string;
+}
+export interface IAuthResponse {
+  message: string;
+  user: TUser;
+  token: string;
+}
+
 type TReview = {
   rating: number;
   comment: string;
